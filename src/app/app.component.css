@@ -1,0 +1,18 @@
+.content {
+  padding: 0.5rem;
+  display: flex;
+  text-align: center;
+}
+
+.left,
+.right {
+  background-color: #fff;
+  border: 1px solid #111;
+  flex-grow: 1;
+}
+
+.right {
+  position: relative;
+  border-left: none;
+  width: 60%;
+}

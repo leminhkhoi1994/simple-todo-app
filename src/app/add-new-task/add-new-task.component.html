@@ -1,0 +1,49 @@
+<ng-container>
+  <form  [formGroup]="form">
+    <h4 class="title">New Task</h4>
+    <div class="form-content">
+      <div class="form-group">
+        <input
+          formControlName="taskName"
+          [required]="true"
+          class="form-control"
+          type="text"
+          value=""
+          placeholder="Add new task ..."
+        />
+        <div class="invalid-feedback" *ngIf="isSubmitform && form.get('taskName').hasError('required')">Task name is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="usr">Description</label>
+        <textarea class="form-control" [required]="true" formControlName="taskDescription" name="" id="" cols="30" rows="8"></textarea>
+        <div class="invalid-feedback" *ngIf="isSubmitform && form.get('taskDescription').hasError('required')">Description is required</div>
+      </div>
+
+      <div class="d-flex">
+        <div class="sub-control">
+          <label for="usr">Due Date</label>
+          <input
+            formControlName="taskDueDate"
+            class="form-control"
+            type="date"
+            [min]='minDate'
+            value="taskDueDate"
+            placeholder="Add new task ..."
+          />
+        </div>
+
+        <div class="sub-control m-left-4">
+          <label for="usr">Piority</label>
+          <select formControlName="taskPiority" class="form-control" name="piority">
+            <option value="nomal">Nomal</option>
+            <option value="low">Low</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn btn-success" (click)="addTask()">Add</button>
+    </div>
+  </form>
+</ng-container>
